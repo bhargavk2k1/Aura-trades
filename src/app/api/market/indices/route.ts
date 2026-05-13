@@ -3,6 +3,8 @@ import { getIndexQuotes } from "@/lib/yahoo/indices";
 import { INDEX_SYMBOLS, INDEX_LABELS } from "@/lib/constants";
 import type { IndexData } from "@/types/market";
 
+export const dynamic = "force-dynamic";
+
 export const revalidate = 15;
 
 export async function GET() {

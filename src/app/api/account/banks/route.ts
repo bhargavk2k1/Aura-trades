@@ -3,6 +3,8 @@ import { z } from "zod";
 import { getSession } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 
+export const dynamic = "force-dynamic";
+
 // ABA routing number checksum validation
 function isValidRouting(r: string): boolean {
   if (!/^\d{9}$/.test(r)) return false;

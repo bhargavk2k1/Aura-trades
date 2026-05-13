@@ -4,6 +4,8 @@ import { requireUser } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { stripe, stripeConfigured } from "@/lib/stripe";
 
+export const dynamic = "force-dynamic";
+
 const schema = z.object({
   paymentIntentId: z.string().startsWith("pi_"),
 });

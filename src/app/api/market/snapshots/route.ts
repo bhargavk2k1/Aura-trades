@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import { getQuotes, quoteToLivePrice } from "@/lib/finnhub/market";
 
+export const dynamic = "force-dynamic";
+
 export const revalidate = 15;
 
 export async function GET(req: Request) {

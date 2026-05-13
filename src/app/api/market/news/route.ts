@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import { finnhub } from "@/lib/finnhub/client";
 
+export const dynamic = "force-dynamic";
+
 export const revalidate = 300; // 5 minutes
 
 interface NewsItem {

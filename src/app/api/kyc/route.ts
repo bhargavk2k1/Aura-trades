@@ -3,6 +3,8 @@ import { z } from "zod";
 import { requireUser } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 
+export const dynamic = "force-dynamic";
+
 const schema = z.object({
   fullName:    z.string().min(2).max(100),
   dateOfBirth: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),

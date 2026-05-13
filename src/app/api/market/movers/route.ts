@@ -2,6 +2,8 @@ import { NextResponse } from "next/server";
 import { getQuotes, quotesToMovers } from "@/lib/finnhub/market";
 import { POPULAR_TICKERS } from "@/lib/constants";
 
+export const dynamic = "force-dynamic";
+
 export const revalidate = 15;
 
 // Extend the mover pool for more varied results

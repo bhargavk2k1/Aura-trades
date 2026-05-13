@@ -3,6 +3,8 @@ import { z } from "zod";
 import { requireUser } from "@/lib/auth";
 import { stripe, stripeConfigured } from "@/lib/stripe";
 
+export const dynamic = "force-dynamic";
+
 const schema = z.object({
   amount: z.number().positive().max(1_000_000),
 });

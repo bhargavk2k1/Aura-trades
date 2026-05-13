@@ -2,6 +2,8 @@ import { NextResponse } from "next/server";
 import { getSession } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 
+export const dynamic = "force-dynamic";
+
 const DEFAULT_NAMES = Array.from({ length: 10 }, (_, i) => `Watchlist ${i + 1}`);
 
 function parseNames(raw: string): string[] {

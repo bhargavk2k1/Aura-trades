@@ -3,6 +3,8 @@ import { z } from "zod";
 import { getSession } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 
+export const dynamic = "force-dynamic";
+
 // Luhn algorithm — standard credit card number validation
 function luhn(num: string): boolean {
   const digits = num.replace(/\D/g, "");

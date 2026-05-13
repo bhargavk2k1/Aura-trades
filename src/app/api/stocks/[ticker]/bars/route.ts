@@ -2,6 +2,8 @@ import { NextResponse } from "next/server";
 import { getDaysAgo } from "@/lib/utils";
 import type { ChartBar } from "@/types/market";
 
+export const dynamic = "force-dynamic";
+
 // Map our timeframe strings to Yahoo Finance intervals
 const TF_MAP: Record<string, string> = {
   "5Min":  "5m",

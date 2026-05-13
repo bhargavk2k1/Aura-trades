@@ -4,6 +4,8 @@ import { getSession } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { getQuotes, quoteToLivePrice } from "@/lib/finnhub/market";
 
+export const dynamic = "force-dynamic";
+
 function parseList(url: string): number {
   const n = parseInt(new URL(url).searchParams.get("list") ?? "0");
   return isNaN(n) || n < 0 || n > 9 ? 0 : n;

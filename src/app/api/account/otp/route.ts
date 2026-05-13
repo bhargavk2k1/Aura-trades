@@ -3,6 +3,8 @@ import { z } from "zod";
 import { requireUser } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 
+export const dynamic = "force-dynamic";
+
 const sendSchema = z.object({
   purpose:       z.enum(["deposit", "withdrawal"]),
   amount:        z.number().positive().max(10_000_000),

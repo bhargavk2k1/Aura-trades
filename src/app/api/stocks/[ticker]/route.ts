@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import { getQuote, quoteToDetail } from "@/lib/finnhub/market";
 
+export const dynamic = "force-dynamic";
+
 export async function GET(_req: Request, { params }: { params: Promise<{ ticker: string }> }) {
   const { ticker: raw } = await params;
   const ticker = raw.toUpperCase();
