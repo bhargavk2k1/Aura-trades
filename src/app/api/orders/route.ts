@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
-import { tradingService } from "@/lib/trading";
+import { getTradingService } from "@/lib/trading";
 import { getSession } from "@/lib/auth";
 
 export const dynamic = "force-dynamic";
@@ -13,7 +13,7 @@ export async function GET(req: Request) {
   const status = searchParams.get("status") ?? "all";
 
   try {
-    const orders = await tradingService.listOrders(session.sub, { status, limit: 50 });
+    const orders = await getTradingService().listOrders(session.sub, { status, limit: 50 });
     return NextResponse.json(orders);
   } catch (err) {
     return NextResponse.json({ error: String(err) }, { status: 500 });
@@ -38,7 +38,7 @@ export async function POST(req: Request) {
   if (!parsed.success) return NextResponse.json({ error: "Invalid order parameters" }, { status: 400 });
 
   try {
-    const order = await tradingService.createOrder(session.sub, parsed.data);
+    const order = await getTradingService().createOrder(session.sub, parsed.data);
     return NextResponse.json(order, { status: 201 });
   } catch (err) {
     const msg = String(err);
